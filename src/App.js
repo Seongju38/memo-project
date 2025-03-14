@@ -1,8 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  console.log("check");
+  //const arr = ["1234564789456454654564546", "1234564789456454654564546", "1234564789456454654564546"] -> ctrl + s
+  const arr = [
+    '1234564789456454654564546',
+    '1234564789456454654564546',
+    '1234564789456454654564546',
+  ];
 
   return (
     <div className="App">
