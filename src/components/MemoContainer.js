@@ -2,10 +2,10 @@ function MemoContainer() {
   return (
     <div className="MemoContainer">
       <div>
-        <input type="text"></input>
+        <input type="text" className="MemoContainer__title"></input>
       </div>
       <div>
-        <textarea />
+        <textarea className="MemoContainer__content" />
       </div>
     </div>
   );
