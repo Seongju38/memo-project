@@ -5,7 +5,9 @@ import SideBar from './components/SideBar';
 import { setItem } from './lib/storage';
 
 function App() {
-  const [memos, setMemos] = useState(JSON.parse(localStorage.getItem('memo')));
+  const [memos, setMemos] = useState(
+    JSON.parse(localStorage.getItem('memo')) || [],
+  );
 
   const [selectedMemoIndex, setSelectedMemoIndex] = useState(0);
 
