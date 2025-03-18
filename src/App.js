@@ -51,6 +51,9 @@ function App() {
     newMemos.splice(index, 1);
 
     setMemos(newMemos);
+    if (index === selectedMemoIndex) {
+      setSelectedMemoIndex(0);
+    }
   };
 
   return (
