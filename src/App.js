@@ -48,6 +48,7 @@ function App() {
     if (index === selectedMemoIndex) {
       setSelectedMemoIndex(0);
     }
+    debouncedSetItem('memo', newMemos);
   };
 
   return (
