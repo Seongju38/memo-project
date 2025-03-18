@@ -5,21 +5,7 @@ import SideBar from './components/SideBar';
 import { setItem } from './lib/storage';
 
 function App() {
-  // 임시 메모 데이터
-  const [memos, setMemos] = useState([
-    {
-      title: 'Memo 1',
-      content: 'This is memo 1',
-      createdAt: 1742218754918, // 시간 값
-      updatedAt: 1742218754918, // 시간 값
-    },
-    {
-      title: 'Memo 2',
-      content: 'This is memo 2',
-      createdAt: 1742218787046,
-      updatedAt: 1742218787046,
-    },
-  ]);
+  const [memos, setMemos] = useState(JSON.parse(localStorage.getItem('memo')));
 
   const [selectedMemoIndex, setSelectedMemoIndex] = useState(0);
 
