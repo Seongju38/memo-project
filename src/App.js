@@ -42,6 +42,7 @@ function App() {
         updatedAt: now,
       },
     ]);
+    setSelectedMemoIndex(memos.length);
   };
 
   return (
