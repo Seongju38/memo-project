@@ -14,14 +14,16 @@ function App() {
 
   const setMemo = useCallback(
     (newMemo) => {
-      const newMemos = [...memos];
+      setMemos((memos) => {
+        const newMemos = [...memos];
 
-      newMemos[selectedMemoIndex] = newMemo;
+        newMemos[selectedMemoIndex] = newMemo;
+        debouncedSetItem('memo', newMemos);
 
-      setMemos(newMemos);
-      debouncedSetItem('memo', newMemos);
+        return newMemos;
+      });
     },
-    [memos, selectedMemoIndex],
+    [selectedMemoIndex],
   );
 
   const addMemo = useCallback(() => {
@@ -40,21 +42,23 @@ function App() {
     setMemos(newMemos);
     setSelectedMemoIndex(memos.length);
     debouncedSetItem('memo', newMemos);
-  }, [memos]);
+  }, [memos]); // memos.length를 사용하기에 setMemos의 state를 가져온다고 해도 dependency에서 빠질 수 없음
 
   const deleteMemo = useCallback(
     (index) => {
-      const newMemos = [...memos];
+      setMemos((memos) => {
+        const newMemos = [...memos];
 
-      newMemos.splice(index, 1);
+        newMemos.splice(index, 1);
+        debouncedSetItem('memo', newMemos);
 
-      setMemos(newMemos);
+        return newMemos;
+      });
       if (index === selectedMemoIndex) {
         setSelectedMemoIndex(0);
       }
-      debouncedSetItem('memo', newMemos);
     },
-    [memos, selectedMemoIndex],
+    [selectedMemoIndex],
   );
 
   return (
