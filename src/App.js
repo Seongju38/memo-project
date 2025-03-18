@@ -24,11 +24,11 @@ function App() {
   const [selectedMemoIndex, setselectedMemoIndex] = useState(0);
 
   const setMemo = (newMemo) => {
-    memos[selectedMemoIndex] = newMemo;
+    const newMemos = [...memos];
 
-    console.log('memos', memos);
+    newMemos[selectedMemoIndex] = newMemo;
 
-    setMemos([...memos]);
+    setMemos(newMemos);
   };
 
   return (
