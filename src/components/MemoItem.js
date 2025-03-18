@@ -5,6 +5,7 @@ function MemoItem({ children, onClick, isSelected }) {
       onClick={onClick}
     >
       {children}
+      <button className="MemoItem__delete-button">X</button>
     </div>
   );
 }
