@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import MemoContainer from './components/MemoContainer';
 import SideBar from './components/SideBar';
+import { setItem } from './lib/storage';
 
 function App() {
   // 임시 메모 데이터
@@ -28,12 +29,14 @@ function App() {
     newMemos[selectedMemoIndex] = newMemo;
 
     setMemos(newMemos);
+    //localStorage.setItem('memo', JSON.stringify(newMemos));
+    setItem('memo', newMemos);
   };
 
   const addMemo = () => {
     const now = new Date().getTime();
 
-    setMemos([
+    const newMemos = [
       ...memos,
       {
         title: 'Untitled',
@@ -41,8 +44,12 @@ function App() {
         createdAt: now,
         updatedAt: now,
       },
-    ]);
+    ];
+
+    setMemos(newMemos);
     setSelectedMemoIndex(memos.length);
+    //localStorage.setItem('memo', JSON.stringify(newMemos));
+    setItem('memo', newMemos);
   };
 
   const deleteMemo = (index) => {
