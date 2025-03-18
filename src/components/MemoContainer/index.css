@@ -1,0 +1,15 @@
+.MemoContainer {
+  background-color: beige;
+  flex: 1; /* 남은 만큼 영역을 채워라 */
+}
+.MemoContainer__title {
+  width: 100%;
+  box-sizing: border-box; /* 여백 시스템에 의해 스크롤 생김 방지 */
+  font-size: 2rem;
+}
+.MemoContainer__content {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  min-height: 600px;
+}
