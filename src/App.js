@@ -2,12 +2,10 @@ import { useState } from 'react';
 import './App.css';
 import MemoContainer from './components/MemoContainer';
 import SideBar from './components/SideBar';
-import { setItem } from './lib/storage';
+import { setItem, getItem } from './lib/storage';
 
 function App() {
-  const [memos, setMemos] = useState(
-    JSON.parse(localStorage.getItem('memo')) || [],
-  );
+  const [memos, setMemos] = useState(getItem('memos') || []);
 
   const [selectedMemoIndex, setSelectedMemoIndex] = useState(0);
 
@@ -17,7 +15,6 @@ function App() {
     newMemos[selectedMemoIndex] = newMemo;
 
     setMemos(newMemos);
-    //localStorage.setItem('memo', JSON.stringify(newMemos));
     setItem('memo', newMemos);
   };
 
@@ -36,7 +33,6 @@ function App() {
 
     setMemos(newMemos);
     setSelectedMemoIndex(memos.length);
-    //localStorage.setItem('memo', JSON.stringify(newMemos));
     setItem('memo', newMemos);
   };
 
