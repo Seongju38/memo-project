@@ -1,14 +1,5 @@
-function MemoItem({ children, index, setSelectedMemoIndex }) {
-  return (
-    <div
-      onClick={() => {
-        console.log('clicked');
-        setSelectedMemoIndex(index);
-      }}
-    >
-      {children}
-    </div>
-  );
+function MemoItem({ children, onClick }) {
+  return <div onClick={onClick}>{children}</div>;
 }
 
 export default MemoItem;

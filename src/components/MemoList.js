@@ -6,8 +6,9 @@ function MemoList({ memos, setSelectedMemoIndex }) {
       {memos.map((memo, index) => (
         <MemoItem
           key={index}
-          index={index}
-          setSelectedMemoIndex={setSelectedMemoIndex}
+          onClick={() => {
+            setSelectedMemoIndex(index);
+          }}
         >
           {memo.title}
         </MemoItem>
