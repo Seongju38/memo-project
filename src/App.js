@@ -20,10 +20,21 @@ function App() {
     },
   ]);
 
+  // 임시로 0번째 메모 데이터 선택
+  const [selectedMemoIndex, setselectedMemoIndex] = useState(0);
+
+  const setMemo = (newMemo) => {
+    memos[selectedMemoIndex] = newMemo;
+
+    console.log('memos', memos);
+
+    setMemos([...memos]);
+  };
+
   return (
     <div className="App">
       <SideBar memos={memos} />
-      <MemoContainer />
+      <MemoContainer memo={memos[selectedMemoIndex]} setMemo={setMemo} />
     </div>
   );
 }
