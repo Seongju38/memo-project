@@ -8,6 +8,13 @@
   width: 200px;
 }
 
+.MemoItem {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .MemoContainer {
   background-color: beige;
   flex: 1; /* 남은 만큼 영역을 채워라 */
